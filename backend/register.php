@@ -25,6 +25,7 @@ if(isset($_POST['signup']))
 	$email = mysqli_real_escape_string($con, $_POST['email']);
 	$password = mysqli_real_escape_string($con, $_POST['password']);
 	$conf_password = mysqli_real_escape_string($con, $_POST['confirm_password']);
+	$gender = mysqli_real_escape_string($con, $_POST['inlineRadioOptions']);
 
 
 	$errors = array();
@@ -35,6 +36,7 @@ if(isset($_POST['signup']))
 	if(empty($name)) {array_push($errors, "Name is Required");}
 	if(empty($email)) {array_push($errors, "Email is Required");}
 	if(empty($password)) {array_push($errors, "Password is Required");}
+	if(empty($gender)) {array_push($errors, "Gender Not Selected");}
 
 	if($password != $conf_password){array_push($errors, "Password Mismatch");}
 	if(strlen($password)<4){array_push($errors, "Password is too short");}
@@ -62,7 +64,7 @@ if(isset($_POST['signup']))
 			move_uploaded_file($fileTmpName, $fileDest);
 		}
 
-		$insert_query = "INSERT INTO users(name, email, password, profile_pic, date_created, last_accessed) VALUES ('$name','$email','$hashed_pass', '$fileNewName', NOW(), NOW())";
+		$insert_query = "INSERT INTO users(name, email, password, profile_pic, gender, date_created, last_accessed) VALUES ('$name','$email','$hashed_pass', '$fileNewName', '$gender', NOW(), NOW())";
 		$insert_query_result = mysqli_query($con, $insert_query);
 		if($insert_query_result){
 		echo "<script>alert('Account Created Successfully ');window.open('../index.php','_self');</script>";

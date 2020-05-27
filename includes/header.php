@@ -35,7 +35,7 @@
                                                                title="Want Some Assisstance?"></i> Contact</a>
                 </li>
                 <li>
-                    <a class="nav-link" href="cc_index.php"><i class="far fa-money-bill-alt" data-toggle="tooltip"
+                    <a class="nav-link" data-toggle="collapse" href="#ccHome" role="button" aria-expanded="false" aria-controls="ccHome" id="ccBtn"><i class="far fa-money-bill-alt" data-toggle="tooltip"
                                                                title="Use Currency Converter"></i> Currency
                         Converter</a>
                 </li>

@@ -59,6 +59,7 @@ if(isset($_POST['login']))
 						$_SESSION['name'] = $arr['name'];
 						$_SESSION['email'] = $arr['email'];
 						$_SESSION['last'] = $arr['last_accessed'];
+						$_SESSION['pic'] = $arr['profile_pic'];
 
 						$update_query = "UPDATE `users` SET `last_accessed`=NOW() WHERE id='$id'";
 						$update_result = mysqli_query($con, $update_query);
