@@ -48,7 +48,7 @@
 		</div>
 	</form>
 	<div class="mb-3">
-		<button class="btn btn-success" id="cc_submit" onclick="convert()" data-toggle="modal" data-target="#staticBackdrop"><i class="far fa-money-bill-alt"></i> Convert</button>
+		<button class="btn btn-success btn-lg" id="cc_submit" onclick="convert()" data-toggle="modal" data-target="#staticBackdrop"><i class="far fa-money-bill-alt"></i> Convert</button>
 	</div>
 	
 </div>

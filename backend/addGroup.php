@@ -36,13 +36,32 @@ if(isset($_POST['gsubmit'])){
 
 	if(count($errors)===0){		
 
-		$admin = $creator.',';
+		$admin_arr = explode(' ', $creator);
+		$admin = $admin_arr[0].',';
 		$count = 1;
 		$assets = 0;
 		$insert_query = "INSERT INTO groups(gname, creator, creator_id, type, admins, membersCount, assets, date_created) VALUES ('$gname', '$creator', '$id', '$type', '$admin', '$count', '$assets', NOW())";
 		$result = mysqli_query($con, $insert_query);
 		if($result){
-			echo "<script>alert('Group Created Successfully!');window.open('../home.php','_self');</script>";
+
+			$grp_id_query = "SELECT id FROM groups WHERE gname='$gname' AND creator_id='$id' AND type='$type' LIMIT 1";
+			$grp_result = mysqli_query($con, $grp_id_query);
+			$grp_array = mysqli_fetch_array($grp_result);
+			$grp_id = $grp_array['id'];
+
+			if($grp_result){
+				$exp_insert = "INSERT INTO expensetable(group_id, gname, member_id, member_name, expense, is_active) VALUES ('$grp_id', '$gname', '$id', '$creator', '$assets', '$count') ";
+				$exp_result = mysqli_query($con, $exp_insert);
+				if($exp_result){
+					echo "<script>alert('Group Created Successfully :) ');window.open('../home.php','_self');</script>";
+				}
+				else{
+					echo "<script>alert('Error In Creating Group');window.open('../home.php','_self');</script>";
+				}
+			}
+			else {
+				echo "<script>alert('Error In Creating Group');window.open('../home.php','_self');</script>";
+			}
 		}
 		else{
 			echo "<script>alert('Error In Creating Group');window.open('../home.php','_self');</script>";
