@@ -22,7 +22,7 @@ if(!empty($_SESSION['name'])){
 		<meta charset="UTF-8">
 	    <meta http-equiv="X-UA-Compatible" content="IE-edge">
 	    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-	    <title>SplitItUp :: Homepage</title>
+	    <title>SplitItUp :: Groups</title>
 	    <link rel="stylesheet" type="text/css" href="css/dashboard.css">
 	    <?php include('includes/head_files.html'); ?>
 	</head>
@@ -49,7 +49,7 @@ if(!empty($_SESSION['name'])){
 					<!-- Currency Converter Form -->
 					<div class="collapse" id="ccHome">
   						<div class="card card-body">
-  							<p class="text-center font-weight-bolder">Currency Converter</p>
+  							<p class="text-center font-weight-bold">Currency Converter</p>
   							<?php include('includes/cc_home.php');?>
   						</div>
 					</div>

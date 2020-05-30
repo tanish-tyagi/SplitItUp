@@ -3,7 +3,7 @@
 ?>
 
 <script type="text/javascript">
-	const cardDeck = document.getElementById('cardDeck');
+	const cardDeck = document.getElementById('cardDeckFriends');
 	cardDeck.innerHTML = "";
 	var userId = ('<?php echo $_SESSION['id']; ?>').valueOf();
 
@@ -59,7 +59,9 @@
 				theme = "primary";
 			}
 
-			card = `<div class="card border-`+theme+`" id='c-`+gid+`' style="max-width: 17rem; min-width: 17rem; margin-top: 0.5rem; margin-bottom: 0.5rem;">
+			if(type === 'G'){
+				
+				card = `<div class="card border-`+theme+`" id='c-`+gid+`' style="max-width: 17rem; min-width: 17rem; margin-top: 0.5rem; margin-bottom: 0.5rem;">
 						<div class="card-header"><h3>`+gname+`</h3></div>
     					<div class="card-body text-`+theme+`" onclick="window.location.href = 'groupDetails.php?q=`+gid+`'">
       					<h5 class="card-title">`+typeText+`</h5>
@@ -73,7 +75,8 @@
     					<div class="card-footer text-muted"> Created:`+date+`</div>
  			 		</div>`;
 
- 			cardDeck.innerHTML += card;
+ 				cardDeck.innerHTML += card;
+			}
 		}
 		xhr1.send();
 	}

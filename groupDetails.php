@@ -6,13 +6,28 @@ if(!isset($_SESSION['id'])){
 	die();
 }
 
+include('includes/config.php');
+
 $fname = 'USER';
+$id = $_SESSION['id'];
+$active = 1;
 
 if(!empty($_SESSION['name'])){
 	$fname = $_SESSION['name'];
     $farr = explode(' ', $fname);
     $fname = $farr[0];
 }
+
+$g = $_GET['q'];
+
+$search_query = "SELECT * FROM expensetable WHERE group_id='$g' AND member_id='$id' AND is_active='$active' LIMIT 1";
+$result = mysqli_query($con, $search_query);
+if(!(mysqli_num_rows($result)===1)){
+	header('Location: home.php');
+}
+$array = mysqli_fetch_array($result);
+$total = $array['expense'];
+$gname = $array['gname'];
 
 ?>
 
@@ -22,7 +37,7 @@ if(!empty($_SESSION['name'])){
 		<meta charset="UTF-8">
 	    <meta http-equiv="X-UA-Compatible" content="IE-edge">
 	    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-	    <title>SplitItUp :: Homepage</title>
+	    <title>SplitItUp</title>
 	    <link rel="stylesheet" type="text/css" href="css/dashboard.css">
 	    <?php include('includes/head_files.html'); ?>
 	</head>
@@ -33,7 +48,7 @@ if(!empty($_SESSION['name'])){
 				<?php include('includes/sidebar_l.php');?>
 				<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
 					<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-						<h1 class="display-4">ACTION CENTER</h1>
+						<h1 class="display-4"><?php echo($gname); ?></h1>
 						<div class="btn-group btn-group-lg mr-2">
 							<button type="button" class="btn btn-sm btn-outline-secondary"
 							data-toggle="collapse" data-target="#addExpense" aria-expanded="false" aria-controls="addExpense"><i class="fas fa-plus-circle"></i> Add Expense</button>
@@ -53,27 +68,24 @@ if(!empty($_SESSION['name'])){
   							<?php include('includes/cc_home.php');?>
   						</div>
 					</div>
-					<div class="card-deck mb-3 text-center">
-						<div class="card mb-4 shadow-sm">
-							<div class="card-header"><h4 class="my-0 font-weight-bolder">Friends</h4></div>
-							<img class="card-image-top" onclick="window.location.href = 'friendsGroupPage.php'" src="index/images/content img-3.png" style="padding: 2.5rem;">
-							<div class="card-body"></div>
-						</div>
-						<div class="card mb-4 shadow-sm">
-							<div class="card-header"><h4 class="my-0 font-weight-bolder">Family</h4></div>
-							<img class="card-image-top" onclick="window.location.href = 'familyGroupsPage.php'" src="index/images/content img-2.png" style="padding-top: 2.5rem; padding-left: 1rem; padding-right: 1rem; padding-bottom: 2.5rem;">
-							<div class="card-body"></div>
-						</div>
-						<div class="card mb-4 shadow-sm">
-							<div class="card-header"><h4 class="my-0 font-weight-bolder">Your Profile</h4></div>
-							<img class="card-image-top" src="index/images/content img-1.png" style="padding: 2.5rem;">
-							<div class="card-body"></div>
-						</div>
-					</div>
+					<table class="table table-hover">
+						<caption>Members Of Group</caption>
+  						<thead class="thead-dark">
+						    <tr>
+						      <th scope="col">#</th>
+						      <th scope="col">Member</th>
+						      <th scope="col">Contribution</th>
+						    </tr>
+  						</thead>
+  						<tbody id='tableBody'>
+  							<!--Table Body-->
+  						</tbody>
+  					</table>
 				</main>
 			</div>
 		</div>
 		<?php include('includes/groupFormModal.php'); ?>
 		<?php include('includes/footer.php'); ?>
+		<?php include('backend/showGroup.php'); ?>
 	</body>
 </html>
