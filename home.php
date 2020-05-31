@@ -56,17 +56,17 @@ if(!empty($_SESSION['name'])){
 					<div class="card-deck mb-3 text-center">
 						<div class="card mb-4 shadow-sm">
 							<div class="card-header"><h4 class="my-0 font-weight-bolder">Friends</h4></div>
-							<img class="card-image-top" onclick="window.location.href = 'friendsGroupPage.php'" src="index/images/content img-3.png" style="padding: 2.5rem;">
+							<img class="card-image-top" onclick="window.location.href = 'friendsGroupPage.php'" src="index/images/content img-3.png" style="padding: 2.5rem; cursor: pointer;">
 							<div class="card-body"></div>
 						</div>
 						<div class="card mb-4 shadow-sm">
 							<div class="card-header"><h4 class="my-0 font-weight-bolder">Family</h4></div>
-							<img class="card-image-top" onclick="window.location.href = 'familyGroupsPage.php'" src="index/images/content img-2.png" style="padding-top: 2.5rem; padding-left: 1rem; padding-right: 1rem; padding-bottom: 2.5rem;">
+							<img class="card-image-top" onclick="window.location.href = 'familyGroupsPage.php'" src="index/images/content img-2.png" style="padding-top: 2.5rem; padding-left: 1rem; padding-right: 1rem; padding-bottom: 2.5rem; cursor: pointer;">
 							<div class="card-body"></div>
 						</div>
 						<div class="card mb-4 shadow-sm">
 							<div class="card-header"><h4 class="my-0 font-weight-bolder">Your Profile</h4></div>
-							<img class="card-image-top" src="index/images/content img-1.png" style="padding: 2.5rem;">
+							<img class="card-image-top" src="index/images/content img-1.png" style="padding: 2.5rem; cursor: pointer;">
 							<div class="card-body"></div>
 						</div>
 					</div>

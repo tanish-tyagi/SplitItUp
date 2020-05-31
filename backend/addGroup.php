@@ -52,7 +52,10 @@ if(isset($_POST['gsubmit'])){
 			if($grp_result){
 				$exp_insert = "INSERT INTO expensetable(group_id, gname, member_id, member_name, expense, is_active) VALUES ('$grp_id', '$gname', '$id', '$creator', '$assets', '$count') ";
 				$exp_result = mysqli_query($con, $exp_insert);
-				if($exp_result){
+				$message = $creator." Joined This Group";
+				$chat_insert = "INSERT INTO group_chats(group_id, gname, member_id, member_name, message, dttime) VALUES ('$grp_id', '$gname', '$id', '$creator', '$message', NOW()) ";
+				$chat_result = mysqli_query($con, $chat_insert);
+				if($exp_result&&$chat_result){
 					echo "<script>alert('Group Created Successfully :) ');window.open('../allGroupsPage.php','_self');</script>";
 				}
 				else{

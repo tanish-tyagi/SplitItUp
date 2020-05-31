@@ -61,16 +61,16 @@
 
 			if(type === 'G'){
 				
-				card = `<div class="card border-`+theme+`" id='c-`+gid+`' style="max-width: 17rem; min-width: 17rem; margin-top: 0.5rem; margin-bottom: 0.5rem;">
+				card = `<div class="card border-`+theme+`" id='c-`+gid+`' style="max-width: 19rem; min-width: 16rem; margin-top: 0.5rem; margin-bottom: 0.5rem;">
 						<div class="card-header"><h3>`+gname+`</h3></div>
-    					<div class="card-body text-`+theme+`" onclick="window.location.href = 'groupDetails.php?q=`+gid+`'">
+    					<div class="card-body text-`+theme+`" style="cursor:pointer;" onclick="window.location.href = 'groupDetails.php?q=`+gid+`'">
       					<h5 class="card-title">`+typeText+`</h5>
       					<h6 class="card-subtitle mb-2 text-muted"><small>Owner-</small>`+creator+`</h6>
      				 	<p class="card-text">Total - <i class="fas fa-rupee-sign"></i> `+assets+`</p>
       					<p class="card-text"><small class="text-muted">Members - `+count+`</small></p>
       					<p class="card-text"><small class="text-muted">Your Contribution - <i class="fas fa-rupee-sign"></i> `+your_share+`</small></p>
-      					<p class="card-text"><small class="text-muted">Divided Share - <i class="fas fa-rupee-sign"></i> `+each_share+`</small></p>
-      					<p class="card-text"><small class="text-monospace font-weight-bold">`+owe+` - <i class="fas fa-rupee-sign"></i> `+minus_share+`</small></p>
+      					<p class="card-text"><small class="text-muted">Share Per Member - <i class="fas fa-rupee-sign"></i> `+each_share+`</small></p>
+      					<p class="card-text text-monospace font-weight-bold">`+owe+` - <i class="fas fa-rupee-sign"></i> `+minus_share+`</p>
     					</div>
     					<div class="card-footer text-muted"> Created:`+date+`</div>
  			 		</div>`;
