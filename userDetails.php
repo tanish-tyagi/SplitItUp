@@ -142,7 +142,7 @@ else{
 					<?php echo('<br>');  ?>
 					<div class="row">
 						<div class="col"></div>
-						<div class="col-5">
+						<div class="col-8">
 							<div class="card-header bg-success text-light text-center"><h3>Details Of User</h3></div>
 							<div class="card border-primary align-items-center">
 								<br>
@@ -161,7 +161,12 @@ else{
 								</div>
 							</div>
 						</div>
-						<div class="col-5 table-wrapper-scroll-y my-scrollbar" style="max-height: 40rem; ">
+						<div class="col"></div>
+					</div>
+					<hr style="background-color: #002266;">
+					<div class="row">
+						<div class="col"></div>
+						<div class="col-8 table-wrapper-scroll-y my-scrollbar" style="max-height: 40rem;">
 							<div class="card-header bg-warning text-light text-center"><h3>Groups Of User</h3></div>
 							<div class="card border-primary align-items-center">
 								<div class="card-body text-center" style="width: 100%">

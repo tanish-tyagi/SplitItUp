@@ -48,9 +48,9 @@ $name = $nameArray[0];
                 </li> -->
             </ul>
             <!-- <span class="badge badge-success text-wrap" style="margin-right:10px; width:10rem;"><p class="text-justify-center lead font-italic">Welcome, <?php //echo $name;?></p></span> -->
-            <form class="form-inline mt-2 mt-md-0" style="margin-right: 10px;">
-                <input class="form-control mr-sm-2" type="search" autocomplete="off" placeholder="Search User" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <form class="form-inline mt-2 mt-md-0" style="margin-right: 10px;" action="searchResults.php" method="GET">
+                <input class="form-control mr-sm-2" name="searchterm" type="search" autocomplete="off" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="search"><i class="fas fa-search"></i> Search</button>
             </form>
             <a href="backend/logout.php" class="btn btn-warning" role="button"><i class="fas fa-sign-out-alt"></i> LogOut</a>
             
