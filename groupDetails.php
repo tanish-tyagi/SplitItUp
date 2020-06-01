@@ -127,13 +127,13 @@ if($rows_num>=1){
 					<hr style="background-color: #002266;">
 					<br><br>
 					<div class="collapse" id="groupChat">
-  						<div class="card card-body">
-  							<p class="text-center font-weight-bold">Send Message</p>
+  						<div class="card text-white bg-secondary card-body">
+  							<p class="font-weight-bold"><h4>Send Message</h4></p>
   							<?php include('includes/groupChatForm.php');?>
   						</div>
 					</div>
 					<div class="row">
-						<div class="col"></div>
+						<div class="col" id='down'></div>
 						<div class="col-9 table-wrapper-scroll-y my-scrollbar">
 							<table class="table table-bordered table-hover text-center">
 								<caption>Group Chat</caption>

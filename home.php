@@ -7,6 +7,7 @@ if(!isset($_SESSION['id'])){
 }
 
 $fname = 'USER';
+$id = $_SESSION['id'];
 
 if(!empty($_SESSION['name'])){
 	$fname = $_SESSION['name'];
@@ -43,7 +44,8 @@ if(!empty($_SESSION['name'])){
 					<!-- Add Expense Form -->
 					<div class="collapse" id="addExpense">
   						<div class="card card-body">
-  							Add Expense Form Here
+  							<p class="text-center font-weight-bold">Currency Converter</p>
+  							<?php include('includes/addExpenseForm.php');?>
   						</div>
 					</div>
 					<!-- Currency Converter Form -->
@@ -66,7 +68,7 @@ if(!empty($_SESSION['name'])){
 						</div>
 						<div class="card mb-4 shadow-sm">
 							<div class="card-header"><h4 class="my-0 font-weight-bolder">Your Profile</h4></div>
-							<img class="card-image-top" src="index/images/content img-1.png" style="padding: 2.5rem; cursor: pointer;">
+							<img class="card-image-top" onclick="window.location.href = 'userDetails.php?u=<?php echo($id); ?>'" src="index/images/content img-1.png" style="padding: 2.5rem; cursor: pointer;">
 							<div class="card-body"></div>
 						</div>
 					</div>
