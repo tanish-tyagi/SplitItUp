@@ -69,7 +69,7 @@
 			grpCreator.innerHTML = String(listedItems.creator);
 			count.innerHTML = String(listedItems.membersCount);
 			total.innerHTML = sign+String(listedItems.assets);
-			share.innerHTML = sign+String(listedItems.assets.valueOf()/listedItems.membersCount.valueOf());
+			share.innerHTML = sign+String((listedItems.assets.valueOf()/listedItems.membersCount.valueOf()).toFixed(2));
 		}
 		xhr1.send();
 	}

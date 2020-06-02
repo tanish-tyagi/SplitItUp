@@ -35,7 +35,7 @@
 			var dt = date.split(" ");
 			date = dt[0];
 
-			var each_share = (list.assets.valueOf())/(list.membersCount.valueOf());
+			var each_share = ((list.assets.valueOf())/(list.membersCount.valueOf())).toFixed(2);
 			var minus_share = your_share.valueOf()-each_share.valueOf();
 			var owe = "";
 			if(your_share.valueOf() >= each_share.valueOf()){

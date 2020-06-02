@@ -35,10 +35,10 @@
 			var dt = date.split(" ");
 			date = dt[0];
 
-			var each_share = (list.assets.valueOf())/(list.membersCount.valueOf());
-			var minus_share = your_share.valueOf()-each_share.valueOf();
+			var each_share = ((list.assets.valueOf())/(list.membersCount.valueOf())).toFixed(2);
+			var minus_share = Maths.abs(your_share.valueOf())-Maths.abs(each_share.valueOf());
 			var owe = "";
-			if(your_share.valueOf() >= each_share.valueOf()){
+			if(your_share >= each_share){
 				owe = "This Group owes you";
 			}else{
 				owe = "You owe this Group";

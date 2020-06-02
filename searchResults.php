@@ -134,7 +134,7 @@ if(isset($_GET['search'])){
 											$two = $line['creator'];
 											$link_id = "groupDetails.php?q=".$line['id'];
 										}
-										$l .= "<td onclick='window.location.href = `".$link_id."`' style='cursor: pointer;'>".$one."</td><td>".$two."</td></tr>";
+										$l .= "<td onclick='window.location.href = `".$link_id."`' style='cursor: pointer;'><strong>-> ".$one."</strong></td><td>".$two."</td></tr>";
 										echo $l;
 									}
 									  echo "</tbody>";

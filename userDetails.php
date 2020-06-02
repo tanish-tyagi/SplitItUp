@@ -128,7 +128,7 @@ else{
 					<!-- Add Expense Form -->
 					<div class="collapse" id="addExpense">
   						<div class="card card-body">
-  							<p class="text-center font-weight-bold">Currency Converter</p>
+  							<p class="text-center font-weight-bolder">Add Expense</p>
   							<?php include('includes/addExpenseForm.php');?>
   						</div>
 					</div>
