@@ -31,8 +31,8 @@ if(isset($_GET['search'])){
 
 		$query = "SELECT id,name,email FROM users WHERE name LIKE '%$search%' ";
 		$result = mysqli_query($con,$query);
-		$rows = mysqli_num_rows($result);
-		if($rows>=1){
+		$search_rows = mysqli_num_rows($result);
+		if($search_rows>=1){
 
 			while($row = mysqli_fetch_assoc($result)){
 				array_push($arr,$row);
@@ -50,8 +50,8 @@ if(isset($_GET['search'])){
 
 			$grp_query = "SELECT id, gname, creator FROM groups WHERE gname LIKE '%$search%' ";
 			$grp_result = mysqli_query($con,$grp_query);
-			$rows = mysqli_num_rows($grp_result);
-			if($rows>=1){
+			$search_rows = mysqli_num_rows($grp_result);
+			if($search_rows>=1){
 
 				while($row = mysqli_fetch_assoc($grp_result)){
 					array_push($arr, $row);
@@ -117,7 +117,7 @@ if(isset($_GET['search'])){
 					<div class="row">
 						<div class="col"></div>
 						<div class="col-8">
-							<div class="card-header"><?php echo($rows); ?> Results Found!! For '<?php echo($search);?>'</div>
+							<div class="card-header"><?php echo($search_rows); ?> Results Found!! For '<?php echo($search);?>'</div>
 							<table class="table text-center table-hover">
 								<?php echo($thead); 
 								      echo "<tbody>";

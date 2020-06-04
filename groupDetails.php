@@ -64,6 +64,7 @@ if($rows_num>=1){
 							<button type="button" class="btn btn-sm btn-outline-secondary"
 							data-toggle="collapse" data-target="#addExpense" aria-expanded="false" aria-controls="addExpense"><i class="fas fa-plus-circle"></i> Add Expense</button>
             				<button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="collapse" data-target="#groupChat" aria-expanded="false" aria-controls="groupChat"><i class="far fa-comment-alt"></i> Send Group Message</button>
+            				<button type="button" class="btn btn-sm btn-outline-secondary" onclick="scrollMsg()"><i class="fas fa-arrow-down"></i></button>
           				</div>
 					</div>
 					<!-- Add Expense Form -->
@@ -133,7 +134,7 @@ if($rows_num>=1){
   							<?php include('includes/groupChatForm.php');?>
   						</div>
 					</div>
-					<div class="row">
+					<div class="row" id="msgFrm">
 						<div class="col" id='down'></div>
 						<div class="col-9 table-wrapper-scroll-y my-scrollbar">
 							<table class="table table-bordered table-hover text-center">
@@ -176,5 +177,11 @@ if($rows_num>=1){
 		<?php include('includes/groupFormModal.php'); ?>
 		<?php include('includes/footer.php'); ?>
 		<?php include('backend/showGroup.php'); ?>
+		<script type="text/javascript">
+			function scrollMsg(){
+				var msgEl = document.getElementById('msgFrm');
+				msgEl.scrollIntoView({behavior: "smooth"});
+			}
+		</script>
 	</body>
 </html>

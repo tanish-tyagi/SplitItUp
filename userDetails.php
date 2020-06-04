@@ -117,12 +117,14 @@ else{
 			<div class="row">
 				<?php include('includes/sidebar_l.php');?>
 				<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+					<?php include('includes/chartjsSizeMonitor.php'); ?>
 					<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
 						<h1 class="display-4">PROFILE</h1>
 						<div class="btn-group btn-group-lg mr-2">
 							<button type="button" class="btn btn-sm btn-outline-secondary"
 							data-toggle="collapse" data-target="#addExpense" aria-expanded="false" aria-controls="addExpense"><i class="fas fa-plus-circle"></i> Add Expense</button>
-            				<button type="button" class="btn btn-sm btn-outline-secondary"><i class="far fa-chart-bar"></i> Your Stats</button>
+            				<button type="button" onclick="scrollFunction()" class="btn btn-sm btn-outline-secondary"><i class="far fa-chart-bar"></i> Your Stats</button>
+            				<button type="button" class="btn btn-sm btn-outline-secondary" onclick="scrolldwn()"><i class="fas fa-arrow-down"></i></button>
           				</div>
 					</div>
 					<!-- Add Expense Form -->
@@ -164,13 +166,13 @@ else{
 						<div class="col"></div>
 					</div>
 					<hr style="background-color: #002266;">
-					<div class="row">
+					<div class="row" id='grps'>
 						<div class="col"></div>
 						<div class="col-8 table-wrapper-scroll-y my-scrollbar" style="max-height: 40rem;">
 							<div class="card-header bg-warning text-light text-center"><h3>Groups Of User</h3></div>
 							<div class="card border-primary align-items-center">
-								<div class="card-body text-center" style="width: 100%">
-									<table class="table">
+								<div class="card-body text-center table-responsive" style="width: 100%">
+									<table class="table table-striped">
 										<?php echo($table); ?>
 									</table>
 								</div>
@@ -178,10 +180,18 @@ else{
 						</div>
 						<div class="col"></div>
 					</div>
+					<hr style="background-color: #002266">
+					<?php include('includes/chart.php'); ?>
 				</main>
 			</div>
 		</div>
 		<?php include('includes/groupFormModal.php'); ?>
 		<?php include('includes/footer.php'); ?>
+		<script type="text/javascript">
+			function scrolldwn(){				
+				var grps = document.getElementById('grps');
+				grps.scrollIntoView({behavior: "smooth"});
+			}
+		</script>
 	</body>
 </html>

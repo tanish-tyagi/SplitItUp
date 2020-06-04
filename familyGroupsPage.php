@@ -32,12 +32,14 @@ if(!empty($_SESSION['name'])){
 			<div class="row">
 				<?php include('includes/sidebar_l.php');?>
 				<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+					<?php include('includes/chartjsSizeMonitor.php'); ?>
 					<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
 						<h2 class="display-4"><i class="fas fa-user-friends"></i> FAMILY GROUPS</h2>
 						<div class="btn-group btn-group-lg mr-2">
 							<button type="button" class="btn btn-sm btn-outline-secondary"
 							data-toggle="collapse" data-target="#addExpense" aria-expanded="false" aria-controls="addExpense"><i class="fas fa-plus-circle"></i> Add Expense</button>
-            				<button type="button" class="btn btn-sm btn-outline-secondary"><i class="far fa-chart-bar"></i> Your Stats</button>
+            				<button type="button" onclick="scrollDown()" class="btn btn-sm btn-outline-secondary"><i class="far fa-chart-bar"></i> Your Stats</button>
+            				<button type="button" onclick="scrollFunction()" class="btn btn-sm btn-outline-secondary"><i class="fas fa-arrow-down"></i></button>
           				</div>
 					</div>
 					<!-- Add Expense Form -->
@@ -57,9 +59,18 @@ if(!empty($_SESSION['name'])){
 					<div class="card-deck mb-3 text-center" id="cardDeckFamily">
 						Loading....
 					</div>
+					<hr style="background-color: #002266">
+					<?php include('includes/chart.php'); ?>
 				</main>
+				<div id='btm'></div>
 			</div>
 		</div>
+		<script type="text/javascript">
+			function scrollDown(){
+				var btm = document.getElementById('btm');
+				btm.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
+			}
+		</script>
 		<?php include('includes/groupFormModal.php'); ?>
 		<?php include('includes/footer.php'); ?>
 		<?php include('backend/familyGroups.php'); ?>

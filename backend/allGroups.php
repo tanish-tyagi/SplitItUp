@@ -35,10 +35,10 @@
 			var dt = date.split(" ");
 			date = dt[0];
 
-			var each_share = ((list.assets.valueOf())/(list.membersCount.valueOf())).toFixed(2);
-			var minus_share = Maths.abs(your_share.valueOf())-Maths.abs(each_share.valueOf());
+			var each_share = (list.assets.valueOf())/(list.membersCount.valueOf());
+			var minus_share = your_share.valueOf()-each_share.valueOf();
 			var owe = "";
-			if(your_share >= each_share){
+			if(your_share.valueOf() >= each_share.valueOf()){
 				owe = "This Group owes you";
 			}else{
 				owe = "You owe this Group";
@@ -67,8 +67,8 @@
      				 	<p class="card-text">Total - <i class="fas fa-rupee-sign"></i> `+assets+`</p>
       					<p class="card-text"><small class="text-muted">Members - `+count+`</small></p>
       					<p class="card-text"><small class="text-muted">Your Contribution - <i class="fas fa-rupee-sign"></i> `+your_share+`</small></p>
-      					<p class="card-text"><small class="text-muted">Share Per Member - <i class="fas fa-rupee-sign"></i> `+each_share+`</small></p>
-      					<p class="card-text text-monospace font-weight-bold">`+owe+` - <i class="fas fa-rupee-sign"></i> `+minus_share+`</p>
+      					<p class="card-text"><small class="text-muted">Share Per Member - <i class="fas fa-rupee-sign"></i> `+each_share.toFixed(2)+`</small></p>
+      					<p class="card-text text-monospace font-weight-bold">`+owe+` - <i class="fas fa-rupee-sign"></i> `+minus_share.toFixed(2)+`</p>
     					</div>
     					<div class="card-footer text-muted"> Created:`+date+`</div>
  			 		</div>`;

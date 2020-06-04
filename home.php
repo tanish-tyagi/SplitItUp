@@ -33,12 +33,13 @@ if(!empty($_SESSION['name'])){
 			<div class="row">
 				<?php include('includes/sidebar_l.php');?>
 				<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+					<?php include('includes/chartjsSizeMonitor.php'); ?>
 					<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
 						<h1 class="display-4">ACTION CENTER</h1>
 						<div class="btn-group btn-group-lg mr-2">
 							<button type="button" class="btn btn-sm btn-outline-secondary"
 							data-toggle="collapse" data-target="#addExpense" aria-expanded="false" aria-controls="addExpense"><i class="fas fa-plus-circle"></i> Add Expense</button>
-            				<button type="button" class="btn btn-sm btn-outline-secondary"><i class="far fa-chart-bar"></i> Your Stats</button>
+            				<button type="button" onclick="scrollFunction()" class="btn btn-sm btn-outline-secondary"><i class="far fa-chart-bar"></i> Your Stats</button>
           				</div>
 					</div>
 					<!-- Add Expense Form -->
@@ -72,6 +73,8 @@ if(!empty($_SESSION['name'])){
 							<div class="card-body"></div>
 						</div>
 					</div>
+					<hr style="background-color: #002266">
+					<?php include('includes/chart.php'); ?>
 				</main>
 			</div>
 		</div>
