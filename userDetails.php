@@ -123,7 +123,14 @@ else{
 						<div class="btn-group btn-group-lg mr-2">
 							<button type="button" class="btn btn-sm btn-outline-secondary"
 							data-toggle="collapse" data-target="#addExpense" aria-expanded="false" aria-controls="addExpense"><i class="fas fa-plus-circle"></i> Add Expense</button>
-            				<button type="button" onclick="scrollFunction()" class="btn btn-sm btn-outline-secondary"><i class="far fa-chart-bar"></i> Your Stats</button>
+							<?php 
+								if($n!=$id){
+									echo '<button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="collapse" data-target="#invite" aria-expanded="false" aria-controls="invite">Invite To Your Group</button>';
+								}else{
+									echo '<button type="button" onclick="scrollFunction()" class="btn btn-sm btn-outline-secondary"><i class="far fa-chart-bar"></i> Your Stats</button>';
+								} 
+
+							?>
             				<button type="button" class="btn btn-sm btn-outline-secondary" onclick="scrolldwn()"><i class="fas fa-arrow-down"></i></button>
           				</div>
 					</div>
@@ -141,6 +148,13 @@ else{
   							<?php include('includes/cc_home.php');?>
   						</div>
 					</div>
+					<!---->
+					<?php if($n!=$id){echo("<div class='collapse' id='invite'>
+  						<div class='card card-body'>
+  							<p class='text-center font-weight-bolder'>Invite To Join Your Group</p>");
+  							include('includes/inviteForm.php');
+  						echo("</div></div>");} ?>
+
 					<?php echo('<br>');  ?>
 					<div class="row">
 						<div class="col"></div>
@@ -181,7 +195,7 @@ else{
 						<div class="col"></div>
 					</div>
 					<hr style="background-color: #002266">
-					<?php include('includes/chart.php'); ?>
+					<?php if($n==$id){include('includes/chart.php');} ?>
 				</main>
 			</div>
 		</div>

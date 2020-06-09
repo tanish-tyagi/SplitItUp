@@ -1,4 +1,4 @@
-<canvas class="my-4 w-100 chartjs-render-monitor" id="myChart" width="1035" height="436" style="display: block; height: 349px; width: 828px;">
+<canvas class="my-4 w-100 chartjs-render-monitor" id="myChart" style="position: relative;">
 </canvas>
 
 <script type="text/javascript">
@@ -57,7 +57,7 @@
         pointRadius: 5,
         pointHitRadius: 10,
         pointRotation: 180,
-        lineTension: 0.15,
+        lineTension: 0.05,
         borderColor: '#002266',
         //backgroundColor: '#002266',
         borderWidth: 4,

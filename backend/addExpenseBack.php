@@ -36,7 +36,7 @@ if(isset($_POST['amtSubmit'])){
     	$prev_assets = (int)$arr1['assets'];
 
     	$new_assets = $prev_assets + (int)$amount;
-    	$u1 = "UPDATE groups SET assets='$new_assets' WHERE id='$g_ID' OR gname='$gname'";
+    	$u1 = "UPDATE groups SET assets='$new_assets' WHERE id='$g_ID' AND gname='$gname'";
         $ur1 = mysqli_query($con,$u1);
         if($ur1>=1){
 

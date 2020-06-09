@@ -43,8 +43,10 @@
 				var temp = "";
 				if(listedItems[i].member_id.valueOf() === userId){
 					temp = "<tr"+cl+"><th scope='row'>"+(i+1).valueOf()+"</th><td onclick='window.location.href = `userDetails.php?u="+listedItems[i].member_id+"`' style='cursor: pointer;'>"+listedItems[i].member_name+"</td><td><i class='fas fa-rupee-sign'></i> "+listedItems[i].expense+"</td></tr>";
-				}else{
+				}else if(listedItems[i].is_active.valueOf()=== '1'){
 					temp = "<tr><th scope='row'>"+(i+1).valueOf()+"</th><td  onclick='window.location.href = `userDetails.php?u="+listedItems[i].member_id+"`' style='cursor: pointer;'>"+listedItems[i].member_name+"</td><td><i class='fas fa-rupee-sign'></i> "+listedItems[i].expense+"</td></tr>";
+				}else{
+					temp = "<tr class='table-secondary' ><th scope='row'>"+(i+1).valueOf()+"</th><td  onclick='window.location.href = `userDetails.php?u="+listedItems[i].member_id+"`' style='cursor: pointer;'>"+listedItems[i].member_name+"</td><td> ACTIVATION PENDING </td></tr>";
 				}
 				final += temp;
 			}
